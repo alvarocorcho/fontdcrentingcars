@@ -40,11 +40,15 @@ const routes: Routes = [
     component: EditarVehiculoComponent
   },
   {
-    path: "eliminar-vehiculo",
+    path: "eliminar-vehiculo/:id",
     component: EliminarVehiculoComponent
   },
   {
     path: "buscar-vehiculo",
+    component: BuscarVehiculoComponent
+  },
+  {
+    path: "listar-vehiculo",
     component: BuscarVehiculoComponent
   },
 ];

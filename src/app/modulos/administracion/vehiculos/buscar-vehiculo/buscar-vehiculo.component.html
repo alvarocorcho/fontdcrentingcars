@@ -1,1 +1,37 @@
 <p>buscar-vehiculo works!</p>
+<div class="container">
+    <a routerLink="/administracion/crear-vehiculo" class="btn">Nuevo vehiculo</a>
+    
+    <br >
+    <table class="table responsive">
+        <thead>
+            <tr>
+                <th>Categoria</th>
+                <th>Marca</th>
+                <th>Edicion</th>
+                <th>Modelo</th>
+                <th>Color</th>
+                <th>Precio Dia</th>
+                <th>Imagen</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let v of listadoRegistros">
+                <td>{{v.categoria}}</td>
+                <td>{{v.marca}}</td>
+                <td>{{v.edicion}}</td>
+                <td>{{v.modelo}}</td>
+                <td>{{v.color}}</td>
+                <td>{{v.precioDia}}</td>
+                <td>{{v.estado}}</td>               
+                <td>
+                    <img src="{{v.imagen}}" class="imagenVehiculo" />
+                </td>
+                <td>
+                    <a routerLink="/administracion/editar-vehiculo/{{v.id}}" class="btn">Editar</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    </div>

@@ -30,45 +30,55 @@ export class SeguridadService {
     return this.datosUsuarioEnSesion.asObservable();
   }
 
-Identificar(usuario: string, clave: string):Observable<ModeloIdentificar>{
-  return this.http.post<ModeloIdentificar>(`${this.url}/identificarUsuario`,{
-    usuario : usuario,
-    clave : clave
-  },{
-    headers: new HttpHeaders({
-  })
-  })
-}
-
-AlmacenarSesion(datos: ModeloIdentificar){
-  datos.siestaIdentificado= true;
-  let stringDatos = JSON.stringify(datos);
-  localStorage.setItem("datosSesion",stringDatos);
-  this.RefrescarDatosSesion(datos)
-}
-
-ObtenerInformacionSesion(){
-  let datosString = localStorage.getItem("datosSesion");
-  if(datosString){
-    let datos = JSON.parse(datosString);
-    return datos;
-  }else{
-    return null;
+  Identificar(usuario: string, clave: string):Observable<ModeloIdentificar>{
+    return this.http.post<ModeloIdentificar>(`${this.url}/identificarUsuario`,{
+      usuario : usuario,
+      clave : clave
+    },{
+      headers: new HttpHeaders({
+    })
+    })
   }
-}
 
-EliminarInformacionSesion(){
-  localStorage.removeItem("datosSesion");
-  this.RefrescarDatosSesion(new ModeloIdentificar());
-}
+  AlmacenarSesion(datos: ModeloIdentificar){
+    datos.siestaIdentificado= true;
+    let stringDatos = JSON.stringify(datos);
+    localStorage.setItem("datosSesion",stringDatos);
+    this.RefrescarDatosSesion(datos)
+  }
 
-SeHaIniciadoSesion(){
-  let datosString = localStorage.getItem("datosSesion");
-  return datosString;
-}
-}
+  ObtenerInformacionSesion(){
+    let datosString = localStorage.getItem("datosSesion");
+    if(datosString){
+      let datos = JSON.parse(datosString);
+      return datos;
+    }else{
+      return null;
+    }
+  }
 
+  EliminarInformacionSesion(){
+    localStorage.removeItem("datosSesion");
+    this.RefrescarDatosSesion(new ModeloIdentificar());
+  }
 
+  SeHaIniciadoSesion(){
+    let datosString = localStorage.getItem("datosSesion");
+    return datosString;
+  }
+
+  ObtenerToken(){
+    let datosString = localStorage.getItem("datosSesion");
+    if(datosString){
+      let datos = JSON.parse(datosString);
+      return datos.tk;
+    } else{
+      return '';
+    }
+
+  }
+
+}
 
  /*   }
    Identificar(usuario: string, clave: string):Observable<ModeloIdentificar>{
