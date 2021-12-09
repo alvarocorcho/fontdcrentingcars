@@ -10,6 +10,7 @@ import { VehiculoService } from 'src/app/servicios/vehiculo.service';
 export class BuscarVehiculoComponent implements OnInit {
 
   listadoRegistros : ModeloVehiculo[] = [];
+  
   constructor(private vehiculoServicio: VehiculoService) { }
 
   ngOnInit(): void {

@@ -1,1 +1,71 @@
 <p>editar-vehiculo works!</p>
+<div class="row">
+    <h3 class="center-aling">Actualizar Informacion Vehiculos</h3>
+    <article class="col s6 offset-s3">
+
+        <form [formGroup]="fgValidador" (ngSubmit)="EditarVehiculo()">
+            <input type="hidden" formControlName="id"/>
+            <div class="input-field">
+                <label for="categoria" class="active" >Categoria</label>
+                <input formControlName="categoria" type="text" name="categoria" required>
+                <div class="invalid-feedback">
+                    Valor requerido.
+                </div>
+            </div>
+            <div class="input-field">
+                <label for="marca" class="active" >Marca</label>
+                <input formControlName="marca" type="text" name="marca" required>
+                <div class="invalid-feedback">
+                    Valor requerido.
+                </div>
+            </div>
+            <div class="input-field">
+                <label for="edicion" class="active" >Edicion</label>
+                <input formControlName="edicion" type="text" name="edicion" required>
+                <div class="invalid-feedback">
+                    Valor requerido.
+                </div>
+            </div>
+            <div class="input-field">
+                <label for="modelo" class="active" >Modelo</label>
+                <input formControlName="modelo" type="text" name="modelo" required>
+                <div class="invalid-feedback">
+                    Valor requerido.
+                </div>
+            </div>
+            <div class="input-field">
+                <label for="color" class="active" >Color</label>
+                <input formControlName="color" type="text" name="color" required>
+                <div class="invalid-feedback">
+                    Valor requerido.
+                </div>
+            </div>
+            <div class="input-field">
+                <label for="precioDia" class="active" >Valor precio por dia</label>
+                <input formControlName="precioDia" type="text" name="precioDia" required>
+                <div class="invalid-feedback">
+                    Valor requerido.
+                </div>
+            </div>
+            <div class="input-field">
+                <label for="imagen" class="active" >Imagen</label>
+                <input formControlName="imagen" type="text" name="imagen" required>
+                <div class="invalid-feedback">
+                    Valor requerido.
+                </div>
+            </div>
+            <div class="input-field">
+                <label for="estado" class="active" >Estado</label>
+                <input formControlName="estado" type="text" name="estado" required>
+                <div class="invalid-feedback">
+                    Valor requerido.
+                </div>
+            </div>
+            <p class="center">
+                <button [disabled]="!fgValidador.valid" class="waves-effect waves-light btn" type="submit">
+                    <i class="material-icons right">send</i>Enviar
+                </button>
+            </p>
+        </form>
+    </article>
+</div>

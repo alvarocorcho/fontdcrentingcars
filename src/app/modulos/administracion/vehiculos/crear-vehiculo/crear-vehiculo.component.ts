@@ -49,7 +49,8 @@ export class CrearVehiculoComponent implements OnInit {
 
    this.servicioVehiculo.CrearVehiculo(v).subscribe((datos: ModeloVehiculo) =>{ 
     alert("**INFORMACION DEL VEHICULO ALMACENADA CORRECTAMENTE");
-      this.router.navigate(["/administracion/listar-vehiculo"]);
+    /* this.router.navigate(["/administracion/listar-vehiculo"]); */
+      this.router.navigate(["/administracion/buscar-vehiculo"]);
     }, (error: any)=>{
       alert("**ERROR AL GRABAR INFORMACION DEL VEHICULO");
     })

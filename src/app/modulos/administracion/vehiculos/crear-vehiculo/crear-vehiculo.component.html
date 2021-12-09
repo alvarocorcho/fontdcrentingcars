@@ -1,6 +1,6 @@
 <p>crear-vehiculo works!</p>
 <div class="row">
-    <h3 class="center-aling">Crear Vehiculoss</h3>
+    <h3 class="center-aling">Crear Vehiculos</h3>
     <article class="col s6 offset-s3">
 
         <form [formGroup]="fgValidador" (ngSubmit)="GuardarVehiculo()">
@@ -12,8 +12,8 @@
                 </div>
             </div>
             <div class="input-field">
-                <label for=marca>Marca</label>
-                <input formControlName=marca type="text" name=marca required>
+                <label for="marca">Marca</label>
+                <input formControlName="marca" type="text" name="marca" required>
                 <div class="invalid-feedback">
                     Valor requerido.
                 </div>

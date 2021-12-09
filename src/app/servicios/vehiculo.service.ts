@@ -8,7 +8,7 @@ import { SeguridadService } from 'src/app/servicios/seguridad.service';
   providedIn: 'root'
 })
 export class VehiculoService {
-  url = "http://localhost:3000"
+  url = `http://localhost:3000`;
   token: String='';
 
   constructor(private http: HttpClient, private SeguridadServicio: SeguridadService) { 
@@ -16,11 +16,11 @@ export class VehiculoService {
   }
 
   ObtenerRegistros(): Observable<ModeloVehiculo[]> {
-    return this.http.get<ModeloVehiculo[]>('$this.url/vehiculos')
+    return this.http.get<ModeloVehiculo[]>(`${this.url}/vehiculos`)
   }
 
   ObtenerRegistrosPorId(id: string): Observable<ModeloVehiculo>{
-    return this.http.get<ModeloVehiculo>(`${this.url}/vehiculo/${id}`);
+    return this.http.get<ModeloVehiculo>(`${this.url}/vehiculos/${id}`);
    }
 
    CrearVehiculo(vehiculo: ModeloVehiculo): Observable<ModeloVehiculo>{
