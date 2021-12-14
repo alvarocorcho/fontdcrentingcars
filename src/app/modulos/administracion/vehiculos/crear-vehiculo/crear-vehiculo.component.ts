@@ -9,6 +9,7 @@ import { VehiculoService } from 'src/app/servicios/vehiculo.service';
   templateUrl: './crear-vehiculo.component.html',
   styleUrls: ['./crear-vehiculo.component.css']
 })
+
 export class CrearVehiculoComponent implements OnInit {
   fgValidador: FormGroup=this.fb.group({
     'categoria':['',[Validators.required]],
@@ -27,6 +28,7 @@ export class CrearVehiculoComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
   GuardarVehiculo(){
     let categoria = this.fgValidador.controls["categoria"].value;
     let marca = this.fgValidador.controls["marca"].value;
@@ -49,7 +51,6 @@ export class CrearVehiculoComponent implements OnInit {
 
    this.servicioVehiculo.CrearVehiculo(v).subscribe((datos: ModeloVehiculo) =>{ 
     alert("**INFORMACION DEL VEHICULO ALMACENADA CORRECTAMENTE");
-    /* this.router.navigate(["/administracion/listar-vehiculo"]); */
       this.router.navigate(["/administracion/buscar-vehiculo"]);
     }, (error: any)=>{
       alert("**ERROR AL GRABAR INFORMACION DEL VEHICULO");

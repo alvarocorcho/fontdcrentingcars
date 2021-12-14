@@ -8,6 +8,7 @@
         <li *ngIf="seInicioSesion"><a routerLink="/seguridad/cambioclave">Cambiar Clave</a></li>
         <li *ngIf="seInicioSesion"><a routerLink="/seguridad/cerrarsesion">Cerrar Sesion</a></li>
         <li *ngIf="!seInicioSesion"><a routerLink="/seguridad/identificar">Inicio de Sesion</a></li>
+        <li *ngIf="!seInicioSesion"><a routerLink="/administracion/crear-usuario">Registrese></a></li>
       </ul>
     </div>
   </nav>
@@ -18,4 +19,5 @@
     <li *ngIf="seInicioSesion"><a routerLink="/seguridad/cambioclave">Cambiar Clave</a></li>
     <li *ngIf="seInicioSesion"><a routerLink="/seguridad/cerrarsesion">Cerrar Sesion</a></li>
     <li *ngIf="!seInicioSesion"><a routerLink="/seguridad/identificar">Inicio de Sesion</a></li>
+    <li *ngIf="!seInicioSesion"><a routerLink="/administracion/crear-usuario">Registrese></a></li>
   </ul>
