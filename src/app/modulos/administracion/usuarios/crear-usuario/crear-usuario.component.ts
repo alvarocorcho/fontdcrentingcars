@@ -11,19 +11,7 @@ import { ModeloUsuario } from 'src/app/modelos/usuario.modelo';
 })
 
 export class CrearUsuarioComponent implements OnInit {
-
-  u = new ModeloUsuario(
-    rolId= rolId;
-    nombres = nombres;
-    apellidos = apellidos;
-    tipoDocumento = tipoDocumento;
-    documento = documento;
-    direccion = direccion;
-    telefono1 = telefono1;
-    telefono2 = telefono2;
-    email = email
-    )
-/*   fgValidador: FormGroup=this.fb.group({
+  fgValidador: FormGroup = this.fb.group({
     'nombres':['',[Validators.required]],
     'apellidos':['',[Validators.required]],
     'tipoDocumento':['',[Validators.required]],
@@ -32,7 +20,7 @@ export class CrearUsuarioComponent implements OnInit {
     'telefono1':['',[Validators.required]],
     'telefono2':['',[Validators.required]],
     'email':['',[Validators.required]],
-  }) */
+  })
 
   constructor(private fb: FormBuilder,
     private servicioUsuario: UsuarioService,
@@ -56,15 +44,15 @@ export class CrearUsuarioComponent implements OnInit {
     let rolId = "61929dfd34b7c36ed0c62a71";
 
     let u = new ModeloUsuario();
-      rolId= rolId;
-      nombres = nombres;
-      apellidos = apellidos;
-      tipoDocumento = tipoDocumento;
-      documento = documento;
-      direccion = direccion;
-      telefono1 = telefono1;
-      telefono2 = telefono2;
-      email = email;
+      u.rolId= rolId;
+      u.nombres = nombres;
+      u.apellidos = apellidos;
+      u.tipoDocumento = tipoDocumento;
+      u.documento = documento;
+      u.direccion = direccion;
+      u.telefono1 = telefono1;
+      u.telefono2 = telefono2;
+      u.email = email;
 
 
       this.servicioUsuario.CrearUsuario(u).subscribe((datos: ModeloUsuario) =>{ 

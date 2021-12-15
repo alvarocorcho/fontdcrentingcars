@@ -1,86 +1,60 @@
 <p>crear-usuario works!</p>
-
-<div class="container">
-    
-        <br>
-        <h4>FORMULARIO DE REGISTRO CLIENTES</h4>
-        <br>
-        <form class="row g-3 needs-validation" novalidate>
-          <div class="col-md-6">
-            <label for="nombres" class="form-label">nombres</label>
-            <input type="text" class="form-control" id="nombres" value="" [(ngModel)]="nombres" required>
-            <div class="invalid-feedback">
-              Sus nombres son requeridos
+<div class="row">
+    <h4>FORMULARIO DE REGISTRO CLIENTES</h4>
+        <form [formGroup]="fgValidador" class= "col s12" (ngSubmit)="GuardarUsuario()">
+            <div class="input-field col s6">
+                <label for="nombres">nombres</label>
+                <input formControlName="nombres" type="text" id="nombres" name="nombres" required>
             </div>
-          </div>
-
-          <div class="col-md-6">
-            <label for="apellidos" class="form-label">apellidos</label>
-            <input type="text" class="form-control" id="apellidos" value="" [(ngModel)]="apellidos" required>
-            <div class="invalid-feedback">
-              Sus Apellidos son requeridos
+            <div class="input-field col s6">
+                <label for="apellidos">apellidos</label>
+                <input formControlName="apellidos" type="text" id="apellidos" name="apellidos" required>
             </div>
-          </div>
-
-          <div class="col-md-2">
-            <label for="tipoDocumento" class="form-label">Tipo de Documento</label>
-            <select class="form-select" id="tipoDocumento" [(ngModel)]="tipoDocumento" required>
-              <option selected disabled value="">Seleccione uno</option>
-              <option label="CEDULA DE CIUDADANIA" >CC</option>
-              <option label="TARJETA DE IDENTIDAD">TI</option>
-              <option label="PERMISO ESPECIAL">PE</option>
-              <option label="PASAPORTE">PAS</option>
-            </select>
-            <div class="invalid-feedback">
-              Seleccione un Tipo de Documento.
-            </div>
-          </div>
-
-          <div class="col-md-4">
-            <label for="documento" class="form-label">Numero de documento</label>
-            <input type="text" class="form-control" id="documento" value="" [(ngModel)]="documento"  required>
-            <div class="invalid-feedback">
-              Su numero de documento es requerido
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <label for="email" class="form-label">Correo electronico</label>
-            <div class="input-group has-validation">
-              <span class="input-group-text" id="inputGroupPrepend">@</span>
-              <input type="text" class="form-control" placeholder="Correo electronico: correo@ejemplo.com" id="email" aria-describedby="inputGroupPrepend" value="" [(ngModel)]="email" required>
-              <div class="invalid-feedback">
-                Correo electronico requerido
-              </div>
-            </div>
-          </div>
-
-          <div class= "col-md-4">
-            <label for="direccion" class="form-label">direccion</label>
-            <input type="text" class="form-control" id="direccion [(ngModel)]="direccion required>
-            <div class="invalid-feedback">
-              Su direccion es requerida.
-            </div>
-          </div>
-
-          <div class="col-md-4">
-            <label for="telefono1" class="form-label">Numero de Celular</label>
-            <input type="text" class="form-control" id="telefono1" value="" [(ngModel)]="telefono1" required>
-            <div class="invalid-feedback">
-              Su numero de Celular es requerido
-            </div>
-          </div>
-
-          <div class="col-md-4">
-            <label for="telefono2" class="form-label">Numero telefono 2</label>
-            <input type="text" class="form-control" id="telefono2" value="0" [(ngModel)]="telefono2" >
-          </div>
-
-          <div class=>
-            <button class="btn btn-primary" type="submit">Submit form</button>
-          </div>
             
+            <div class="row">
+                <div class="input-field col s3">
+                    <select class="browser-default" formControlName= "tipoDocumento" type="text" id="tipoDocumento" name=" tipoDocumento" required>
+                    <option value="" disabled selected>tipo Documento</option>
+                    <option value="CC">CEDULA DE CIUDADANIA</option>
+                    <option value="TI">TARJETA DE IDENTIDAD</option>
+                    <option value="PAS">PASAPORTE</option>
+                    <option value="PE">PERMISO ESPECIAL</option>
+                    </select>
+                </div>
+                <div class="input-field col s4">
+                    <label for="documento">Numero de Documento</label>
+                    <input formControlName="documento" type="text" id="documento" name="documento" required>
+                </div>
+                <div class="input-field col s5">
+                    <input formControlName="email" type="email" id= "email" class="validate" name="email" required>
+                    <label for="email">Correo Electronico</label>
+                    <span class="helper-text" data-error="formato correo electronico errado" data-success="Formato correo electronico correcto">correo@ejemplo.com</span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <label for="direccion">Direccion</label>
+                        <input formControlName="direccion" type="text" id="direccion" name="direccion" required>
+                        </div>
+                    <div class="input-field col s3">
+                        <label for="telefono1">Telefono</label>
+                        <input formControlName="telefono1" type="text" id="telefono1" name="telefono1" required>
+                        </div>
+                    <div class="input-field col s3">
+                        <label for="telefono2">Telefono 2</label>
+                        <input formControlName="telefono2" type="text" id="telefono2" name="telefono2"  value ="0">
+                    </div>
+                </div>
+            </div>
+            
+            <p class="center">
+                <button class="waves-effect waves-light btn" type="submit">
+                    <i class="material-icons right">send</i>Crear Usuario
+                </button>
+                &nbsp;<a routerLink="/inicio" class="btn btn-warning red">Cancelar</a>
+            </p>
+
         </form>
-      </div>
-
-
+</div>   

@@ -1,1 +1,36 @@
 <p>buscar-usuario works!</p>
+<div class="container">
+    <a routerLink="/administracion/crear-usuario" class="btn">Nuevo usuario</a>
+    
+    <br >
+    <table class="table responsive">
+        <thead>
+            <tr>
+                <th>Nombres</th>
+                <th>Apellidos</th>
+                <th>Tipo Documento</th>
+                <th>Documento>
+                <th>Correo Electronico</th>
+                <th>Telefono 1</th>
+                <th>Telefono 2</th>
+                <th>Direccion</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let u of listadoRegistros">
+                <td>{{u.nombres}}</td>
+                <td>{{u.apellidos}}</td>
+                <td>{{u.tipoDocumento}}</td>
+                <td>{{u.documento}}</td>
+                <td>{{u.email}}</td>
+                <td>{{u.telefono1}}</td>
+                <td>{{u.telefono2}}</td>               
+                <td>{{u.direccion}}</td>
+                <td>
+                    <a routerLink="/administracion/editar-usuario/{{u.id}}" class="btn">Editar</a>
+                    &nbsp;<a routerLink="/administracion/eliminar-usuario/{{u.id}}" class="btn btn-warning red">Eliminar</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
