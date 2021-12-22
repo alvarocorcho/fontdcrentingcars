@@ -1,1 +1,82 @@
 <p>editar-usuario works!</p>
+<div class="row">
+    <h4>FORMULARIO ACTUALIZACION INFORMACION CLIENTES</h4>
+    <h5>El numero de documento y el correo electronico no se pueden modificar, si desea hacerlo, elimine su usuario y cree uno nuevo</h5>
+        
+    <form [formGroup]="fgValidador" class= "col s12" (ngSubmit)="EditarUsuario()">
+        
+        <input type="hidden" formControlName="id"/>
+        <input type="hidden" formControlName="rolId"/>
+
+        <div class="input-field col s6">
+            <label for="nombres" class="active" >nombres</label>
+            <input formControlName="nombres" type="text" id="nombres" name="nombres" required>
+        </div>
+        <div class="input-field col s6">
+            <label for="apellidos" class="active" >apellidos</label>
+            <input formControlName="apellidos" type="text" id="apellidos" name="apellidos" required>
+        </div>
+        
+        <div class="row">
+            <div class="input-field col s3">
+                <select class="browser-default" formControlName= "tipoDocumento" type="text" id="tipoDocumento" name=" tipoDocumento" required>
+                <option value="" disabled selected>tipo Documento</option>
+                <option value="CC">CEDULA DE CIUDADANIA</option>
+                <option value="TI">TARJETA DE IDENTIDAD</option>
+                <option value="PAS">PASAPORTE</option>
+                <option value="PE">PERMISO ESPECIAL</option>
+                </select>
+            </div>
+
+            <input type="hidden" formControlName="documento"/>
+            <div class="input-field col s4">
+                <label for="documento" class="active" >Numero de Documento</label>
+            </div>
+
+<!-- 
+            <div class="input-field col s4" >
+                <label for="documento" class="active" >Numero de Documento</label>
+                <input formControlName="documento" type="text" id="documento" name="documento" required>
+            </div>
+             -->
+             
+            <input type="hidden" formControlName="email"/>
+            <div class="input-field col s4">
+                <label for="email" class="active" >Correo Electronico</label>
+            </div>
+<!-- 
+            <div class="input-field col s5" >
+                <input formControlName="email" type="email" id= "email" class="validate" name="email" required>
+                <label for="email" class="active" >Correo Electronico</label>
+                <span class="helper-text" data-error="formato correo electronico errado" data-success="Formato correo electronico correcto">correo@ejemplo.com</span>
+            </div>
+ -->
+        </div>
+
+        <div class="row">
+            <div class="row">
+                <div class="input-field col s6">
+                    <label for="direccion" class="active" >Direccion</label>
+                    <input formControlName="direccion" type="text" id="direccion" name="direccion" required>
+                    </div>
+                <div class="input-field col s3">
+                    <label for="telefono1" class="active" >Telefono</label>
+                    <input formControlName="telefono1" type="text" id="telefono1" name="telefono1" required>
+                    </div>
+                <div class="input-field col s3">
+                    <label for="telefono2" class="active" >Telefono 2</label>
+                    <input formControlName="telefono2" type="text" id="telefono2" name="telefono2"  value ="0">
+                </div>
+            </div>
+        </div>
+        
+        <p class="center">
+            <button class="waves-effect waves-light btn" type="submit">
+                <i class="material-icons right">send</i>Actualizar Informacion
+            </button>
+            &nbsp;<a routerLink="/inicio" class="btn btn-warning red">Cancelar</a>
+        </p>
+
+    </form>
+
+</div>   

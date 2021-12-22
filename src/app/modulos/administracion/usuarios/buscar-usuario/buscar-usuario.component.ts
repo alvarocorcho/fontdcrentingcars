@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { ModeloUsuario } from 'src/app/modelos/usuario.modelo';
 import { UsuarioService } from 'src/app/servicios/usuario.service';
 
@@ -16,10 +17,15 @@ export class BuscarUsuarioComponent implements OnInit {
   ngOnInit(): void {
     this.ObtenerListadoUsuarios();
   }
+/*
+  ObtenerRegistrosPorId(id: string): Observable<ModeloUsuario>{
+    return this.http.get<ModeloUsuario>(`${this.url}/usuarios/${id}`);
+   }
+*/ 
   ObtenerListadoUsuarios(){
     this.usuarioServicio.ObtenerRegistros().subscribe((datos: ModeloUsuario[])=>{
       this.listadoRegistros = datos;
     })
   }
-
+ 
 }
